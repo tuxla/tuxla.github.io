@@ -5,11 +5,16 @@
     <link rel="stylesheet" type="text/css" href="button.css">
     <style>
         .button {
-            background:  #bddef152 !important;
+            background: #bddef152 !important;
             filter: opacity(0.8);
             /* opacity: 0.5; */
-            
+
         }
+
+        .finished {
+            background: rgba(16, 219, 16, 0.863) !important;
+        }
+
         a.button {
             background: inherit;
             text-align: center;
@@ -21,8 +26,8 @@
 
         .frame {
             display: grid;
-            grid-template-columns:20% 20% 20% 20% 20% ;
-            grid-gap:5px;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            grid-gap: 5px;
         }
 
         .block {
@@ -32,42 +37,62 @@
 </head>
 
 <body style="background: url(https://minaprotocol.com/wp-content/uploads/2021/01/HeroSectionBackground.jpg);;">
+    <script>
+        const ids = ['cfg1', 'cfg2', 'cfg3', 'vg1', 'vg2'];
+
+        window.onload = () => ids.forEach(id => {
+            if (localStorage.getItem(id)) {
+                let button = document.getElementById(id);
+                button.className += ' finished';
+            }
+        })
+
+
+        const markAndJump = (id, url) => {
+            let button = document.getElementById(id);
+            button.className += ' finished';
+            localStorage.setItem(id, true);
+            window.location.href = url;
+        }
+    </script>
     <div>
         <h2>Coinlist 账号操作</h2>
-    <div class="frame">
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/dashboard">Coinlist Dashboard</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/login">Coinlist 登录</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/accounts/basics">Coinlist 修改信息</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/accounts/security">Coinlist 二步验证修改</a></div>
-    </div>
+        <div class="frame">
+            <div class="block"><a class="button button-glow button-rounded"
+                    href="https://coinlist.co/dashboard">Coinlist Dashboard</a></div>
+            <div class="block"><a class="button button-glow button-rounded " href="https://coinlist.co/login">Coinlist
+                    登录</a></div>
+            <div class="block"><a class="button button-glow button-rounded "
+                    href="https://coinlist.co/accounts/basics">Coinlist 修改信息</a></div>
+            <div class="block"><a class="button button-glow button-rounded "
+                    href="https://coinlist.co/accounts/security">Coinlist 二步验证修改</a></div>
+        </div>
 
-    <h2>Coinlist 活动参与</h2>
-    <div class="frame">
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/centrifuge-option-1/onboarding">Centrifuge一轮</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/centrifuge-option-2/onboarding">Centrifuge二轮</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/vega-option-1/onboarding">Vega一轮</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/vega-option-2/onboarding">Vega二轮</a></div>
-        <div class="block"><a class="button button-glow button-rounded "
-                href="https://coinlist.co/vega-option-3/onboarding">Vega三轮</a></div>
-    </div>
+        <h2>Coinlist 活动参与</h2>
+        <div class="frame">
+            <div class="block"><a class="button button-glow button-rounded " id="cfg1"
+                    onclick="markAndJump('cfg1','https://coinlist.co/centrifuge-option-1/onboarding') ">Centrifuge一轮</a>
+            </div>
+            <div class="block"><a class="button button-glow button-rounded " id="cfg2"
+                    onclick="markAndJump('cfg2','https://coinlist.co/centrifuge-option-2/onboarding') ">Centrifuge二轮</a>
+            </div>
+            <div class="block"><a class="button button-glow button-rounded " id="vg1"
+                    onclick="markAndJump('vg1','https://coinlist.co/vega-option-1/onboarding') ">Vega一轮</a></div>
+            <div class="block"><a class="button button-glow button-rounded " id="vg2"
+                    onclick="markAndJump('vg2','https://coinlist.co/vega-option-2/onboarding') ">Vega二轮</a></div>
+            <div class="block"><a class="button button-glow button-rounded " id="vg3"
+                    onclick="markAndJump('vg3','https://coinlist.co/vega-option-3/onboarding') ">Vega三轮</a></div>
+        </div>
 
-    <h2>Coinlist 排队链接</h2>
-    <ul>
-        <!-- <li><a href="https://coinlist.co/login">Coinlist 登录</a></li>
+        <h2>Coinlist 排队链接</h2>
+        <ul>
+            <!-- <li><a href="https://coinlist.co/login">Coinlist 登录</a></li>
             <li><a href="https://coinlist.co/dashboard">Coinlist Dashboard</a></li>
             <li><a href="https://coinlist.co/accounts/basics">Coinlist 修改信息</a></li>
             <li><a href="https://coinlist.co/accounts/security">Coinlist 二步验证修改</a></li> -->
-    </ul>
+        </ul>
     </div>
-    
+
 </body>
 
 </html>
