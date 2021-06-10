@@ -50,7 +50,16 @@
             }
         })
 
-        new ClipboardJS('.button');
+        let cl = new ClipboardJS('.button');
+
+        cl.on('success', e => {
+            let originalClass = e.trigger.className;
+            e.trigger.className += "finished"
+            setTimeout(() => {
+                e.trigger.className = originalClass
+            }, 1000)
+        })
+
 
         const markAndJump = (id, url) => {
             let button = document.getElementById(id);
