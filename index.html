@@ -41,7 +41,7 @@
 
 <body style="background: url(https://minaprotocol.com/wp-content/uploads/2021/01/HeroSectionBackground.jpg);;">
     <script>
-        const ids = ['human1','human2','bzz'];
+        const ids = ['efi'];
 
         window.onload = () => ids.forEach(id => {
             if (localStorage.getItem(id)) {
@@ -97,21 +97,12 @@
 
         <h2>Coinlist 活动参与</h2>
         <div class="frame">
-            <div class="block"><a class="button button-rounded " id="bzz"
-                    onclick="markAndJump('bzz','https://coinlist.co/queue/enter_queue/swarmcommunitysale') ">Swarm排队</a>
-            </div>
-            
+       
             <div class="block"><a class="button button-rounded " id="efi"
-                    onclick="markAndJump('efi','https://coinlist.co/efinity-community-sale/onboarding') ">Efinity登记</a>
+                                  onclick="markAndJump('human1','https://coinlist.co/queue/enter_queue/efinity') ">Efinity排队</a>
             </div>
 
-            <div class="block"><a class="button button-rounded " id="human1"
-                                  onclick="markAndJump('human1','https://coinlist.co/queue/enter_queue/humanoption1') ">human第一轮排队</a>
-            </div>
-
-            <div class="block"><a class="button button-rounded " id="human2"
-                                  onclick="markAndJump('human2','https://coinlist.co/queue/enter_queue/humanoption2') ">human第二轮排队</a>
-            </div>
+            
             
         </div>
 
